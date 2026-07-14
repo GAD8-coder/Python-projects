@@ -1,5 +1,8 @@
 #Banking Program
 
+import __main__
+
+
 class BankAccount:
     def __init__(self, accountNumber, OwnerName , initalBalance):
         self.accountNumber = accountNumber
@@ -68,6 +71,28 @@ def main():
             if SearchNumber in AllAccounts:
                 amount = float(input("Enter Amount to Deposit:"))
                 AllAccounts[SearchNumber].deposit(amount)
+            else:
+                print(f"{SearchNumber} not found in the records!")
+        if  choice == 3:
+            SearchNumber = input("Enter Account number to withdraw Money:")
 
-        if choice == 3:
+            if SearchNumber in AllAccounts:
+                amount = float(input("Enter Amount to withdraw:"))
+                AllAccounts[SearchNumber].withdraw(amount)
+            else: print(f"{SearchNumber} not found in the records!")
+
+        if choice == 4:
+            SearchNumber = input("Enter Account number to print statement:")
+            if SearchNumber in AllAccounts:
+                AllAccounts[SearchNumber].printStatement() #From (All accounts Dict, the account is located by the specific SearchNum key word , .printstatement function does its job)
+            else:
+                print(f"{SearchNumber} not found in the records!")
+
+        if choice == 5:
+            print("Thank you for using GAD8 Banking Application!")
+            break
+
+if __name__ == "__main__":
+    main()
+        
             
